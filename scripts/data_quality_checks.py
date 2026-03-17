@@ -106,8 +106,7 @@ def check_class_balance(df, target_col='churn', imbalance_threshold=0.1):
     """
     Check target class balance
     """
-    print("
-🔍 Checking class balance...")
+    print("Checking class balance...")
 
     if target_col not in df.columns:
         print(f"⚠️  Target column '{target_col}' not found")
@@ -139,8 +138,7 @@ def check_feature_variance(df, variance_threshold=0.01):
     """
     Check for low-variance features
     """
-    print("
-🔍 Checking feature variance...")
+    print("Checking feature variance...")
 
     numeric_cols = df.select_dtypes(include=[np.number]).columns
     low_variance_features = []
@@ -169,8 +167,7 @@ def check_duplicate_rows(df, threshold=0.01):
     """
     Check for duplicate rows
     """
-    print("
-🔍 Checking for duplicate rows...")
+    print("Checking for duplicate rows...")
 
     n_duplicates = df.duplicated().sum()
     duplicate_pct = n_duplicates / len(df)
@@ -193,8 +190,7 @@ def check_feature_correlations(df, correlation_threshold=0.95):
     """
     Check for highly correlated features
     """
-    print("
-🔍 Checking feature correlations...")
+    print("Checking feature correlations...")
 
     numeric_cols = [col for col in df.select_dtypes(include=[np.number]).columns
                     if col != 'churn']
@@ -228,8 +224,7 @@ def check_data_freshness(df, date_col=None, max_age_days=30):
     """
     Check data freshness (if date column available)
     """
-    print("
-🔍 Checking data freshness...")
+    print("Checking data freshness...")
 
     if date_col is None or date_col not in df.columns:
         print("⚠️  No date column available - skipping freshness check")
@@ -244,19 +239,16 @@ def generate_quality_report(df):
     """
     Generate summary quality report
     """
-    print("
-" + "=" * 60)
+    print("" + "=" * 60)
     print("DATA QUALITY SUMMARY REPORT")
     print("=" * 60)
 
-    print(f"
-📊 Dataset Overview:")
+    print(f"Dataset Overview:")
     print(f"   • Rows: {len(df):,}")
     print(f"   • Columns: {len(df.columns)}")
     print(f"   • Memory usage: {df.memory_usage(deep=True).sum() / 1024**2:.2f} MB")
 
-    print(f"
-📈 Feature Statistics:")
+    print(f"📈 Feature Statistics:")
     numeric_cols = df.select_dtypes(include=[np.number]).columns
     for col in numeric_cols:
         if col != 'churn':
