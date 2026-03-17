@@ -74,8 +74,7 @@ def check_outliers(df, z_threshold=3.0):
     """
     Check for outliers using Z-score method
     """
-    print("
-🔍 Checking for outliers...")
+    print("Checking for outliers...")
 
     numeric_cols = df.select_dtypes(include=[np.number]).columns
     has_severe_outliers = False
