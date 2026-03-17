@@ -7,10 +7,11 @@ from sklearn.metrics import (
     recall_score,
     f1_score,
     roc_auc_score,
-    confusion_matrix
+    confusion_matrix,
 )
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 def evaluate_model(model, X_test, y_test):
     """
@@ -30,14 +31,15 @@ def evaluate_model(model, X_test, y_test):
 
     # Calculate metrics
     metrics = {
-        'accuracy': accuracy_score(y_test, y_pred),
-        'precision': precision_score(y_test, y_pred),
-        'recall': recall_score(y_test, y_pred),
-        'f1': f1_score(y_test, y_pred),
-        'roc_auc': roc_auc_score(y_test, y_pred_proba)
+        "accuracy": accuracy_score(y_test, y_pred),
+        "precision": precision_score(y_test, y_pred),
+        "recall": recall_score(y_test, y_pred),
+        "f1": f1_score(y_test, y_pred),
+        "roc_auc": roc_auc_score(y_test, y_pred_proba),
     }
 
     return metrics
+
 
 def plot_confusion_matrix(y_test, y_pred, save_path=None):
     """
@@ -51,10 +53,10 @@ def plot_confusion_matrix(y_test, y_pred, save_path=None):
     cm = confusion_matrix(y_test, y_pred)
 
     plt.figure(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
-    plt.xlabel('Predicted')
-    plt.ylabel('Actual')
-    plt.title('Confusion Matrix')
+    sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.title("Confusion Matrix")
 
     if save_path:
         plt.savefig(save_path)
