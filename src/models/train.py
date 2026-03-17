@@ -72,5 +72,6 @@ def main():
         pickle.dump(model, f)
     print("Model saved to models/churn_model.pkl")
 
+
 if __name__ == "__main__":
     main()
