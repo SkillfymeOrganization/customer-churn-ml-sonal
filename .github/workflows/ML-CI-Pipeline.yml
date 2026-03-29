@@ -41,7 +41,7 @@ jobs:
 
     - name: Format check with black
       run: |
-        black --check src/
+        black .
 
     - name: Run unit tests
       run: |
